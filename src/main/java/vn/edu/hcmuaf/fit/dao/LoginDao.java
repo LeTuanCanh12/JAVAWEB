@@ -3,6 +3,7 @@ package vn.edu.hcmuaf.fit.dao;
 import vn.edu.hcmuaf.fit.Connection.DBContext;
 import vn.edu.hcmuaf.fit.model.Product;
 import vn.edu.hcmuaf.fit.model.UserModel;
+import vn.edu.hcmuaf.fit.security.PasswordSc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -78,12 +79,14 @@ public class LoginDao {
         }
     }
     public  void singup( String email, String pass, String first_name) {
+        PasswordSc passwordSc = new PasswordSc();
+
         String query = "insert into user(mail, PASSWORD,first_name,authorities) "+"values( ?, ?, ?, 1)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, email);
-            ps.setString(2, pass);
+            ps.setString(2, passwordSc.hashPassword(pass));
             ps.setString(3,first_name);
 
             ps.executeUpdate();

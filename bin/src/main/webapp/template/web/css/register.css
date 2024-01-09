@@ -1,0 +1,187 @@
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    background-color: white;
+    background-image: url(../img/ba.png);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-size: cover;
+    height: 100%;
+     width: 96%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: Courier "Courier New";
+    position: relative;
+
+}
+
+
+header .header_top {
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    background-color: #fff;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    padding-left: 36px;
+}
+
+.top_left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header_title {
+    padding-left: 24px;
+    margin-top: 42px;
+    font-size: 22px;
+}
+
+.top_right {
+    padding-right: 64px;
+
+}
+
+.top_right a {
+    text-decoration: none;
+    color: #7fad39;
+    font-size: 18px;
+}
+
+
+
+.container {
+    
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 3);
+    width: 400px;
+    max-width: 100%;
+    overflow: hidden;
+    zoom: 0.85;
+    margin-top: 90px;
+  
+}
+.header {
+    padding: 10px 40px;
+    background-color: #7fad39;
+    border-bottom: 1px solid #7fad39;
+}
+.header h2 {
+    color: white;
+    margin: 0;
+
+}
+.form {
+    padding: 30px 40px;
+
+}
+.form-control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+   
+
+}
+
+
+
+.form-control  label{
+    display: inline-block;
+    margin-bottom:5px ;
+    
+}
+
+
+.form-control input {
+   border: 2px solid #b6b6b6;
+   border-radius: 4px;
+   display: block;
+   width: 100%;
+   font-size: 14px;
+   padding: 10px;
+  
+
+    
+}
+.form-control input:hover {
+    border-color: #b6b6b6;
+}
+.form-control input:focus {
+    outline:    #b6b6b6;
+    
+}
+.form-control.error input {
+    border-color: red;
+
+
+
+}
+
+.form-control.success input {
+    border-color: #7fad39;
+
+
+
+
+}
+
+
+.form-control i{
+    position: absolute;
+    top:35px;
+    right :10px;
+    visibility: hidden;
+
+}
+.form-control.success i.fa-circle-check {
+  visibility: visible;
+  color: #2ecc71;
+}
+.form-control.error i.fa-circle-info {
+    visibility: visible;
+    color: red;
+}
+.form-control small {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+}
+.form-control.error small {
+    color: red;
+    visibility: visible ;
+}
+.form button {
+    background-color: #7fad39;
+    border: none;
+    color: white;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+.ta {
+    margin-top: 15px;
+    word-spacing: -3px;
+    text-align: center;
+}
+.form .ta a{
+    color: #7fad39;
+    font-weight: 600;
+}

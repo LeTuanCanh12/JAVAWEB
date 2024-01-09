@@ -12,13 +12,13 @@ public class PasswordSc {
     }
     public static void main(String[] args) {
         PasswordSc ps = new PasswordSc();
-        String rawPassword = "mySecretPassword";
+        String rawPassword = "1";
         String hashedPassword = ps.hashPassword(rawPassword);
 
         System.out.println("Raw password: " + rawPassword);
         System.out.println("Hashed password: " + hashedPassword);
 
-        boolean passwordMatch = ps.checkPassword(rawPassword, hashedPassword);
+        boolean passwordMatch = ps.checkPassword(rawPassword, "$2a$10$06nKCaAT96HtTumMFLf4mOcupfO3cy2lN2Uk7xNcgiKxXd43VptNe");
 
         if (passwordMatch) {
             System.out.println("Password is correct!");

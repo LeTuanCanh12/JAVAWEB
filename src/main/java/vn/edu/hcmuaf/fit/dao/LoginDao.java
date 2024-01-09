@@ -18,13 +18,14 @@ public class LoginDao {
 
     public UserModel findByEmailAndPassword(String email, String password) {
         List<UserModel> userModels = new ArrayList<>();
-        String query = "select * from user where mail= ? AND PASSWORD = ?";
+        PasswordSc p = new PasswordSc();
+
+        String query = "select * from user where mail= ?";
 
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, email);
-            ps.setString(2, password);
             rs = ps.executeQuery();
             while (rs.next()) {
                 UserModel user = new UserModel();
@@ -39,11 +40,14 @@ public class LoginDao {
                 user.setBalance(rs.getInt(9));
                 userModels.add(user);
             }
-            return userModels.isEmpty() ? null : userModels.get(0);
+
+            UserModel UM =  userModels.get(0);
+            System.out.println(UM.getPassword());
+            System.out.println(p.checkPassword(password,UM.getPassword()));
+
+            return p.checkPassword(password,UM.getPassword())?UM:null;
         } catch (Exception e) {
             return null;
-
-
         }
 
     }
@@ -79,14 +83,14 @@ public class LoginDao {
         }
     }
     public  void singup( String email, String pass, String first_name) {
-        PasswordSc passwordSc = new PasswordSc();
-
-        String query = "insert into user(mail, PASSWORD,first_name,authorities) "+"values( ?, ?, ?, 1)";
+        PasswordSc p = new PasswordSc();
+        System.out.println(p.hashPassword(pass));
+        String query = "insert into user(mail, PASSWORD,first_name,authorities) values( ?, ?, ?, 1)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, email);
-            ps.setString(2, passwordSc.hashPassword(pass));
+            ps.setString(2, p.hashPassword(pass));
             ps.setString(3,first_name);
 
             ps.executeUpdate();

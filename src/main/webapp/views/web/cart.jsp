@@ -113,7 +113,7 @@
 				<div class="shoping__cart__btns">
 					<a href="danh-sach-san-pham" class="primary-btn cart-btn">Tiếp
 						tục mua sắm</a>
-					<a href="update_cart"
+					<a href="/gio-hang-cua-ban"
 						class="primary-btn cart-btn cart-btn-right"><span
 						class="icon_loading"></span> Cập nhật lại giỏ</a>
 				</div>

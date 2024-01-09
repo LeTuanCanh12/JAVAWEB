@@ -48,7 +48,7 @@ public class HomeController extends HttpServlet {
 		List<Product> listRating2 = daoRating2.getProductRating2();
 
 		request.setAttribute("listCo", list);
-
+		System.out.print(list);
 		request.setAttribute("listSale", listSale);
 
 		request.setAttribute("listRa", listRating2);
@@ -57,14 +57,6 @@ public class HomeController extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-//	public static void main(String[] args) {
-//		HomeDao daoRating2 = new HomeDao();
-//		List<Product> listRating2 = daoRating2.getProductCommon();
-//
-//		for (Product product : listRating2) {
-//			System.out.println(product);
-//		}
-//	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

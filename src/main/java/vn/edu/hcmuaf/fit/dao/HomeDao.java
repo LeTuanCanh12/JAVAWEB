@@ -33,6 +33,7 @@ public class HomeDao {
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("khong the ket noi");
 		}
 		return list;
 
@@ -43,8 +44,10 @@ public class HomeDao {
 		String query = "select  p.pro_id, p.name ,p.price,p.img, avg(r.point) as pro_point, p.quantity from product p join rating r on p.pro_id = r.pro_id  group by p.pro_id order by quantity desc limit 6";
 		try {
 			conn = new DBContext().getConnection();
+			System.out.println("ket noi db thanh cong");
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
+			System.out.println("thuc hien query");
 			while (rs.next()) {
 				Product pro = new Product();
 				pro.setPro_id(rs.getInt("pro_id"));
@@ -56,6 +59,7 @@ public class HomeDao {
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("khong the ket noi");
 		}
 		return list;
 	}

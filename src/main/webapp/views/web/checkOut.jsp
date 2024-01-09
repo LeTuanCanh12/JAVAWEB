@@ -70,7 +70,6 @@
 <section class="checkout spad">
     <div class="container">
         <div class="row">
-
         </div>
         <div class="checkout__form">
             <h4>Chi tiết thanh toán</h4>
@@ -154,7 +153,7 @@
                         <button href="#" type="submit" class="site-btn">Thanh toán</button>
                     </div>
                 </div>
-        </div>
+
         </form>
     </div>
     </div>

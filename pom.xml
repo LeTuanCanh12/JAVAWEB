@@ -78,6 +78,17 @@
       <version>1.9.13</version>
     </dependency>
     <!--end json -->
+    <!-- Thêm dependency của Bouncy Castle -->
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk15on</artifactId>
+      <version>1.68</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mindrot</groupId>
+      <artifactId>jbcrypt</artifactId>
+      <version>0.4</version>
+    </dependency>
 
     <dependency>
       <groupId>commons-beanutils</groupId>

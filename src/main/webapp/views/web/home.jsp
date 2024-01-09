@@ -95,7 +95,7 @@
 							Cây giống <br />ươm,cấy,ghép
 						</h2>
 						<p>Miễn phí giao hàng, không lo về giá</p>
-						<a href="<c:url value='/list-product'/> " class="primary-btn">MUA
+						<a href="<c:url value='/danh-sach-san-pham'/> " class="primary-btn">MUA
 							NGAY</a>
 					</div>
 				</div>

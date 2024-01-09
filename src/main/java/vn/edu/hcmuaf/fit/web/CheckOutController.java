@@ -23,11 +23,13 @@ public class CheckOutController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/views/web/checkOut.jsp").forward(req, resp);
+
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html;charset-UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		TransactionDao dao = new TransactionDao();
 		HttpSession session = req.getSession();
 

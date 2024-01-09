@@ -56,9 +56,16 @@
 						<%--						<%! UserModel userModel = (UserModel) session.getAttribute("user"); %>--%>
 						<c:if test="${sessionScope.user != null}">
 							<div class="header__top__right__auth">
-								<a href="<c:url value='#'/>"><i class="fa fa-user"></i>Tài khoản</a>
+								<a href="<c:url value='/tao-chu-ky'/>"><i class="fa fa-ticket"></i>Tạo chữ ký</a>
+
 							</div>
-							<a href="/dang-xuat" class="logout">Đăng xuất</a>
+							<div class="header__top__right__auth">
+								<a href="<c:url value='/bao-cao-chu-ky'/>"><i class="fa fa-remove"></i>Báo cáo lộ key</a>
+
+							</div>
+							<div class="header__top__right__auth">
+								<a href="/dang-xuat" class="logout">Đăng xuất</a>
+							</div>
 						</c:if>
 						<c:if test="${sessionScope.user == null}">
 							<div class="header__top__right__auth">

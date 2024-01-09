@@ -37,7 +37,7 @@ public class RegisterControl extends HttpServlet {
                 }else {
 
                     LoginDao dao = new LoginDao();
-                    UserModel a = dao.check(email) ;
+                    UserModel a = dao.check(email);
                     if (a == null) {
                         dao.singup(email,pass,user);
                         response.sendRedirect("/dang-nhap");

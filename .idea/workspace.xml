@@ -12,6 +12,10 @@
     <list default="true" id="74da53fb-adfe-44da-96a8-b9d0d2f6d11a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/dao/LoginDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/dao/LoginDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/security/DigitalSignature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/security/DigitalSignature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/security/PasswordSc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/security/PasswordSc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/web/RegisterControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/web/RegisterControl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -67,22 +71,25 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Source_code/JSP_PEPE/JAVAWEB-master/src/main/webapp/views/web",
+    "last_opened_file_path": "D:/ATBM_HTTT/JAVAWEB/src/main/webapp/views/web",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ATBM_HTTT\JAVAWEB\src\main\webapp\views\web" />
       <recent name="D:\Source_code\JSP_PEPE\JAVAWEB-master\src\main\webapp\views\web" />
       <recent name="D:\bancaygiong_CK\src\main\java\vn\edu\hcmuaf\fit\admin" />
       <recent name="D:\bancaygiong_CK\src\main\java\vn\edu\hcmuaf\fit\model" />
       <recent name="D:\bancaygiong_CK\src\main\webapp\views\admin" />
-      <recent name="D:\bancaygiong_CK\src\main\webapp\template\web\hinhanh" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\bancaygiong_CK\src\main\java\vn\edu\hcmuaf\fit\web" />
@@ -92,19 +99,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.70">
-    <configuration name="ContactController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vn.edu.hcmuaf.fit.web.ContactController" />
-      <module name="bancaygiong_CK" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vn.edu.hcmuaf.fit.web.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HomeDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vn.edu.hcmuaf.fit.dao.HomeDao" />
       <module name="bancaygiong_CK" />
@@ -118,13 +112,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="KeyDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vn.edu.hcmuaf.fit.dao.KeyDao" />
+      <module name="bancaygiong_CK" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.edu.hcmuaf.fit.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PasswordSc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vn.edu.hcmuaf.fit.security.PasswordSc" />
+      <module name="bancaygiong_CK" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.edu.hcmuaf.fit.security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="home.jsp (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8088/views/admin/home.jsp">
       <method v="2" />
     </configuration>
     <configuration name="home.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8088/views/web/home.jsp">
-      <method v="2" />
-    </configuration>
-    <configuration name="register.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8088/views/web/register.jsp">
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 9.0.70" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.70" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -217,20 +234,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.KeyDao" />
+      <item itemvalue="Application.PasswordSc" />
       <item itemvalue="Application.HomeDao" />
-      <item itemvalue="Application.ContactController" />
       <item itemvalue="JavaScript Debug.home.jsp (1)" />
-      <item itemvalue="JavaScript Debug.register.jsp" />
       <item itemvalue="JavaScript Debug.home.jsp" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.70" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.KeyDao" />
+        <item itemvalue="Application.PasswordSc" />
         <item itemvalue="Application.HomeDao" />
         <item itemvalue="JavaScript Debug.home.jsp (1)" />
         <item itemvalue="JavaScript Debug.home.jsp" />
-        <item itemvalue="JavaScript Debug.register.jsp" />
-        <item itemvalue="Application.ContactController" />
       </list>
     </recent_temporary>
   </component>
@@ -263,7 +280,7 @@
       <workItem from="1704178400017" duration="80000" />
       <workItem from="1704782270726" duration="702000" />
       <workItem from="1704802815381" duration="4333000" />
-      <workItem from="1704812557136" duration="1608000" />
+      <workItem from="1704812557136" duration="13435000" />
     </task>
     <servers />
   </component>

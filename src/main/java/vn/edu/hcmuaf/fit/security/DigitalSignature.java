@@ -24,28 +24,28 @@ public class DigitalSignature {
         String dataToSign = "Hello, this is the data to sign.";
 
         // Người dùng ký thông tin
-        byte[] signature = signData(dataToSign.getBytes(), DG.getPrivateKey());
+//        byte[] signature = signData(dataToSign.getBytes(), DG.getPrivateKey());
 
         // Quản trị viên xác nhận chữ ký
-        boolean isVerified = verifySignature(dataToSign.getBytes(), signature, DG.getPublicKey());
+//        boolean isVerified = verifySignature(dataToSign.getBytes(), signature, DG.getPublicKey());
 
-        System.out.println("Chữ ký xác nhận: " + isVerified);
+//        System.out.println("Chữ ký xác nhận: " + isVerified);
 
         // Chuyển PrivateKey thành chuỗi
-        String privateKeyStr = keyToString(keyPair.getPrivate());
+        String privateKeyStr = DG.keyToString(keyPair.getPrivate());
 
         // Chuyển PublicKey thành chuỗi
-        String publicKeyStr = keyToString(keyPair.getPublic());
+        String publicKeyStr = DG.keyToString(keyPair.getPublic());
 
         // In ra chuỗi PrivateKey và PublicKey
         System.out.println("PrivateKey as string:\n" + privateKeyStr);
         System.out.println("\nPublicKey as string:\n" + publicKeyStr);
 
         // Chuyển chuỗi PrivateKey thành đối tượng PrivateKey
-        PrivateKey loadedPrivateKey = stringToPrivateKey(privateKeyStr);
+        PrivateKey loadedPrivateKey = DG.stringToPrivateKey(privateKeyStr);
 
         // Chuyển chuỗi PublicKey thành đối tượng PublicKey
-        PublicKey loadedPublicKey = stringToPublicKey(publicKeyStr);
+        PublicKey loadedPublicKey = DG.stringToPublicKey(publicKeyStr);
 
         // Kiểm tra xem quá trình chuyển đổi đã thành công hay không
         System.out.println("\nLoaded PrivateKey:\n" + loadedPrivateKey);
@@ -55,7 +55,7 @@ public class DigitalSignature {
     }
 
     // Hàm tạo cặp khóa
-    private KeyPair generateKeyPair() throws NoSuchAlgorithmException, NoSuchProviderException {
+    public KeyPair generateKeyPair() throws NoSuchAlgorithmException, NoSuchProviderException {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "BC");
         keyPairGenerator.initialize(2048, new SecureRandom());
         return key = keyPairGenerator.generateKeyPair();
@@ -78,22 +78,22 @@ public class DigitalSignature {
     }
 
     // Phương thức truy xuất khóa công khai từ bên ngoài class
-    public PublicKey getPublicKey() {
-        return key.getPublic();
+    public String getPublicKey() {
+        return Base64.getEncoder().encodeToString(key.getPublic().getEncoded());
     }
 
     // Phương thức truy xuất khóa riêng từ bên ngoài class
-    public PrivateKey getPrivateKey() {
-        return key.getPrivate();
+    public String getPrivateKey() {
+        return Base64.getEncoder().encodeToString(key.getPrivate().getEncoded());
     }
 
     // Chuyển khóa thành chuỗi
-    private static String keyToString(java.security.Key key) {
+    public String keyToString(java.security.Key key) {
         return Base64.getEncoder().encodeToString(key.getEncoded());
     }
 
     // Chuyển chuỗi thành PrivateKey
-    private static PrivateKey stringToPrivateKey(String keyStr) throws Exception {
+    private  PrivateKey stringToPrivateKey(String keyStr) throws Exception {
         byte[] keyBytes = Base64.getDecoder().decode(keyStr);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -101,7 +101,7 @@ public class DigitalSignature {
     }
 
     // Chuyển chuỗi thành PublicKey
-    private static PublicKey stringToPublicKey(String keyStr) throws Exception {
+    private  PublicKey stringToPublicKey(String keyStr) throws Exception {
         byte[] keyBytes = Base64.getDecoder().decode(keyStr);
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");

@@ -35,6 +35,12 @@ public class KeyDao {
 
         }
     }
+    public void updateKey(int id_user) throws Exception {
+        String query = "UPDATE `key` SET status = 0 WHERE User_id ="+id_user;
+        conn = new DBContext().getConnection();
+        ps = conn.prepareStatement(query);
+        ps.executeUpdate();
+    }
     public void  addKey(int id_user,String publickey,String privatekey,String signature) {
         String query = "INSERT INTO `key` (User_id, publickey, privatekey, signature,`status`) VALUES ( ?, ?, ?, ?, 1)";
         try {
@@ -78,13 +84,14 @@ public class KeyDao {
         }
         return null;
     }
-    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchProviderException {
+    public static void main(String[] args) throws Exception {
         KeyDao dao = new KeyDao();
         DigitalSignature DG = new DigitalSignature();
         KeyPair keyPair = DG.generateKeyPair();
 
 //        dao.addKey(2,DG.getPrivateKey(),DG.getPrivateKey(),"ád");
-        dao.addKey(16);
+        dao.updateKey(18);
+        dao.addKey(18);
 
         System.out.println(dao.findKeyByUser(Integer.parseInt("2")));
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="bancaygiong_CK:war" />
+      <artifact name="JAVAWEB:war" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,12 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74da53fb-adfe-44da-96a8-b9d0d2f6d11a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/dao/SignatureDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/web/SignatureNoti.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/web/keyRenew.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/dao/LoginDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/dao/LoginDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/security/DigitalSignature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/security/DigitalSignature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/security/PasswordSc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/security/PasswordSc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/dao/KeyDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/dao/KeyDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/web/GenKeyControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/web/GenKeyControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/web/RegisterControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/web/RegisterControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/web/ReportKeyControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vn/edu/hcmuaf/fit/web/ReportKeyControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/key.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/key.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/web/reportkey.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/web/reportkey.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +75,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/ATBM_HTTT/JAVAWEB/src/main/webapp/views/web",
+    "last_opened_file_path": "D:/Source_code/JAVAWEB/src/main/webapp/views/web",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,11 +89,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Source_code\JAVAWEB\src\main\webapp\views\web" />
       <recent name="D:\ATBM_HTTT\JAVAWEB\src\main\webapp\views\web" />
       <recent name="D:\Source_code\JSP_PEPE\JAVAWEB-master\src\main\webapp\views\web" />
       <recent name="D:\bancaygiong_CK\src\main\java\vn\edu\hcmuaf\fit\admin" />
       <recent name="D:\bancaygiong_CK\src\main\java\vn\edu\hcmuaf\fit\model" />
-      <recent name="D:\bancaygiong_CK\src\main\webapp\views\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\bancaygiong_CK\src\main\java\vn\edu\hcmuaf\fit\web" />
@@ -114,7 +118,7 @@
     </configuration>
     <configuration name="KeyDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vn.edu.hcmuaf.fit.dao.KeyDao" />
-      <module name="bancaygiong_CK" />
+      <module name="JAVAWEB" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="vn.edu.hcmuaf.fit.dao.*" />
@@ -138,18 +142,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="home.jsp (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8088/views/admin/home.jsp">
-      <method v="2" />
+    <configuration name="SignatureDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vn.edu.hcmuaf.fit.dao.SignatureDao" />
+      <module name="JAVAWEB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.edu.hcmuaf.fit.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="home.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8088/views/web/home.jsp">
+    <configuration name="home.jsp (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8088/views/admin/home.jsp">
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 9.0.70" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.70" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="bancaygiong_CK:war">
+        <artifact name="JAVAWEB:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+        <artifact name="JAVAWEB:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/JAVAWEB_war" />
           </settings>
         </artifact>
       </deployment>
@@ -229,25 +248,25 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="bancaygiong_CK:war" />
+          <artifact name="JAVAWEB:war" />
         </option>
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.SignatureDao" />
       <item itemvalue="Application.KeyDao" />
       <item itemvalue="Application.PasswordSc" />
       <item itemvalue="Application.HomeDao" />
       <item itemvalue="JavaScript Debug.home.jsp (1)" />
-      <item itemvalue="JavaScript Debug.home.jsp" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.70" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SignatureDao" />
         <item itemvalue="Application.KeyDao" />
         <item itemvalue="Application.PasswordSc" />
         <item itemvalue="Application.HomeDao" />
         <item itemvalue="JavaScript Debug.home.jsp (1)" />
-        <item itemvalue="JavaScript Debug.home.jsp" />
       </list>
     </recent_temporary>
   </component>
@@ -281,6 +300,9 @@
       <workItem from="1704782270726" duration="702000" />
       <workItem from="1704802815381" duration="4333000" />
       <workItem from="1704812557136" duration="13435000" />
+      <workItem from="1704857796775" duration="2383000" />
+      <workItem from="1704871329033" duration="294000" />
+      <workItem from="1704871653309" duration="9801000" />
     </task>
     <servers />
   </component>

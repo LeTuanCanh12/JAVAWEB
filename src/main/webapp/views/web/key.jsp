@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Dang nhap</title>
+	<title>Vui lòng bảo mật</title>
 	<link rel="stylesheet" href="<c:url value='/template/web/css/login.css' />">
 	<link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -25,12 +25,13 @@
 	<%
 		// Lấy giá trị từ session
 		Key myValue = (Key) request.getSession().getAttribute("Key");
+
 	%>
 	<div class="container header_top">
 		<div class="top_left">
 			<a href="/trang-chu"> <img src="<c:url value='/template/web/img/logo.png' />" alt="logo"
 									   srcset=""></a>
-			<h3 class="header_title">Chữ ký điện tử</h3>
+			<h3 class="header_title">Vui lòng bảo mật</h3>
 		</div>
 		<div class="top_right">
 <%--			<a href="help.html">Bạn cần giúp đỡ?</a>--%>
@@ -44,7 +45,7 @@
 		<div class="header">
 			<h2>Key</h2>
 		</div>
-		<form>
+		<form method="post" class="form" id="form">
 			<div class="form-control">
 				<label>Public</label> <button  onclick="copyToClipboard1() ">Coppy</button>
 				<textarea id="Public" rows="6" cols="40" readonly><%=myValue.getPublickey()%></textarea>
@@ -61,7 +62,7 @@
 			</div>
 
 			<div class="reg">
-				<a href="/dang-nhap">Đăng Kí Tài Khoản</a>
+				<a href="/dang-nhap">Đăng nhập tài khoản</a>
 			</div>
 		</form>
 	</div>

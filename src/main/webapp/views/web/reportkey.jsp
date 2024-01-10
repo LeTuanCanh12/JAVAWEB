@@ -37,13 +37,18 @@
 <div class="ig" id="ig">
     <div class="container_content" style="margin-top: 50px">
         <div class="header">
-            <h2>Tạo báo cáo</h2>
+            <h2>Tạo báo cáo hệ thống</h2>
         </div>
         <form action="/bao-cao-chu-ky" method="post" class="form" id="form">
 
             <div class="form-control">
-                <label>Private Key:</label> <input type="password" placeholder="Nhập private key"
-                                            id="private-key" name="private-key"> <i class="fa-solid fa-circle-check"></i> <i
+                <label>Email:</label> <input type="text" placeholder="Vui lòng nhập email"
+                                            id="email" name="email"> <i class="fa-solid fa-circle-check"></i> <i
+                    class="fa-solid fa-circle-info"></i> <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Password:</label> <input type="password" placeholder="vui lòng nhập password"
+                                                   id="password" name="password"> <i class="fa-solid fa-circle-check"></i> <i
                     class="fa-solid fa-circle-info"></i> <small>Error message</small>
             </div>
 

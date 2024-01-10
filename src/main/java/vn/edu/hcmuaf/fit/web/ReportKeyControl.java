@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.web;
 
+import vn.edu.hcmuaf.fit.dao.KeyDao;
 import vn.edu.hcmuaf.fit.dao.LoginDao;
 import vn.edu.hcmuaf.fit.model.UserModel;
 
@@ -23,24 +24,19 @@ request.getRequestDispatcher("/views/web/reportkey.jsp").forward(request,respons
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset-UTF-8");
         try {
-            String user = request.getParameter("username");
+            String email = request.getParameter("email");
             String pass = request.getParameter("password");
-            if (user != null && pass != null) {
-                UserModel userModel = loginDao.findByEmailAndPassword(user, pass);
-                if (userModel != null) {
-                    HttpSession session = request.getSession();
-                    session.setAttribute("user", userModel);
-                    if(userModel.getAuthorities() ==1)
-                        request.getRequestDispatcher("trang-chu").forward(request,response);
-                    if(userModel.getAuthorities() == 2)
-                        request.setAttribute("admin",userModel);
-                        request.getRequestDispatcher("/views/admin/home.jsp").forward(request,response);
-                    if (userModel.getAuthorities() ==3)
-                        request.getRequestDispatcher("views/admin/home.jsp").forward(request,response);
+            if(!(email.equals(null))&&!(pass.equals(null))){
+                KeyDao key = new KeyDao();
+                UserModel userModel = loginDao.findByEmailAndPassword(email, pass);
+                //thay doi status cua key cu
+                key.updateKey(userModel.getUser_id());
 
-                }else {
-                    request.getRequestDispatcher("views/web/login.jsp").forward(request,response);
-                }
+               //tạo key moi gán vào bảng key
+                key.addKey(userModel.getUser_id());
+                request.getSession().setAttribute("KeyReNew", key.findKeyByUser(userModel.getUser_id()));
+                response.sendRedirect("/views/web/keyRenew.jsp");
+
             }
         }catch (Exception e) {
 

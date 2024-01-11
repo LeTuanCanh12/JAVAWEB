@@ -109,8 +109,8 @@
 			<div class="col-lg-3">
 				<div class="header__cart">
 					<ul>
-						<li><a href="<c:url value='danh-sach-yeu-thich'/>"><i class="fa fa-heart"></i> <span>${favour.tong_so_luong_sp()}</span></a></li>
-						<li><a href="<c:url value='gio-hang-cua-ban'/>"><i class="fa fa-shopping-bag"></i>
+						<li><a title="Danh sách đơn hàng" href="<c:url value='danh-sach-don-hang'/>"><i class="fa fa-list-alt"></i> <span>${favour.tong_so_luong_sp()}</span></a></li>
+						<li><a title="Giỏ hàng" href="<c:url value='gio-hang-cua-ban'/>"><i class="fa fa-shopping-bag"></i>
 								<span>${cart.tong_so_luong_sp()}</span></a></li>
 					</ul>
 					<div class="header__cart__price">

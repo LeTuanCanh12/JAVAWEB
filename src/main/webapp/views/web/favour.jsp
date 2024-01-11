@@ -75,32 +75,46 @@
 					<table>
 						<thead>
 							<tr>
-								<th class="shoping__product">Sản phẩm</th>
-								<th>Giá</th>
-								<th>Đánh giá</th>
-								<th></th>
+								<th class="shoping__product">Đơn hàng</th>
+								<th>Tình trạng xác thực</th>
+								<th>Giá tiền</th>
+								<th>Hành động</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${favour.list}" var="o">
+							<c:forEach items="${listAllTrans}" var="o">
 								<tr>
-									<td class="shoping__cart__item"><img
-											src="<c:url value='${o.pro.getImg()}' />" alt="">
-										<h5>${o.pro.name }</h5></td>
-									<td class="shoping__cart__price">${o.pro.price}đ</td>
+									<td class="shoping__cart__item">
+										<h5>${o.items} <br>
+												${o.name} ${o.phone} ${o.email} ${o.address}</h5></td>
+
 									<td class="shoping__cart__quantity">
 										<div class="product__details__rating">
-											${o.pro.rate.getPoint()} <i class="fa fa-star"></i>
+											<c:if test="${o.status == '1'}">
+												<p>Đã xác thực</p>
+											</c:if>
+											<c:if test="${o.status=='0'}">
+												<p>Đã bị chỉnh sửa</p>
+											</c:if>
 
 										</div>
 									</td>
 									
-									<td >
-									${o.pro.rate.listRate()} đánh giá 
-									<td class="shoping__cart__total"><a href=""> <i
-											class="fa fa-cart-plus"></i>
-									</a> <a href=""><i class="fa fa-close"></i> </a></td>
+									<td>
+											${o.total}đ
+									</td>
+									<td class="shoping__cart__total">
+										<c:if test="${o.status == '1'}">
+											<a href="" title="Không thể tác động" ><i class="fa fa-check"></i> </a>
+										</c:if>
+										<c:if test="${o.status=='0'}">
+											<a href="huy-don-hang?pid=${o.id}" title="Hủy đơn hàng"><i class="fa fa-close"></i> </a>
+
+										</c:if>
+									</td>
+
+
 								</tr>
 
 							</c:forEach>

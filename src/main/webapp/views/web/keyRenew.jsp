@@ -47,14 +47,14 @@
     </div>
     <form method="post" class="form" id="form">
       <div class="form-control">
-        <label>Public</label> <button  onclick="copyToClipboard1() ">Coppy</button>
+        <label>Public</label> <button  onclick="copyToClipboard1() ">Copy</button>
         <textarea id="Public" rows="6" cols="40" readonly><%=myValue.getPublickey()%></textarea>
         <i class="fa-solid fa-circle-check"></i>
         <i class="fa-solid fa-circle-info"></i>
         <small>Error message</small>
       </div>
       <div class="form-control">
-        <label>Private</label> <button  onclick="copyToClipboard2() ">Coppy</button>
+        <label>Private</label> <button  onclick="copyToClipboard2() ">Copy</button>
         <textarea id="Private" rows="6" cols="40" readonly><%=myValue.getPrivatekey()%></textarea>
         <i class="fa-solid fa-circle-check"></i>
         <i class="fa-solid fa-circle-info"></i>

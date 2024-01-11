@@ -1,6 +1,8 @@
 package vn.edu.hcmuaf.fit.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import vn.edu.hcmuaf.fit.dao.KeyDao;
+import vn.edu.hcmuaf.fit.dao.SignatureDao;
 import vn.edu.hcmuaf.fit.dao.TransactionDao;
 import vn.edu.hcmuaf.fit.model.Cart;
+import vn.edu.hcmuaf.fit.model.UserModel;
 
 @WebServlet(urlPatterns = { "/thanh-toan" })
 public class CheckOutController extends HttpServlet {
@@ -34,6 +39,8 @@ public class CheckOutController extends HttpServlet {
 		HttpSession session = req.getSession();
 
 		Cart cart = (Cart) session.getAttribute("cart");
+		UserModel user = (UserModel) session.getAttribute("user");
+
 		if (cart == null)
 			req.getRequestDispatcher("/views/web/checkOut.jsp").forward(req, resp);
 		else {
@@ -41,13 +48,35 @@ public class CheckOutController extends HttpServlet {
 			String address = req.getParameter("diachi") + ", " + req.getParameter("thanhpho") + ", "
 					+ req.getParameter("quocgia");
 			String phone = req.getParameter("phone");
-			String email = req.getParameter("email");
+			String email = user.getMail();
 			String note = req.getParameter("note");
+			String verify_code = req.getParameter("verify-code");
+			String textSig = req.getParameter("textSig");
 
 //			if (cart != null && !name.equals("") && !address.equals("") && !phone.equals("") && !email.equals("")) {
-				dao.createNewTransaction(cart, name, address, phone, email, note, cart.tong_tien_gio());
-				resp.sendRedirect("./thanh-toan");
+			try {
+			if(dao.verifyUserCode(user.getUser_id(), verify_code)) {
+				SignatureDao decryptVeriCode = new SignatureDao();
 
+					String temp = decryptVeriCode.decryptRSA(dao.getPublicKey(user.getUser_id()),verify_code);
+					String textSigHash = decryptVeriCode.sha256Hash(textSig);
+					if(textSigHash.equals(temp)) {
+						dao.createNewTransaction(user.getUser_id(), cart, name, address, phone, email, note, cart.tong_tien_gio());
+						req.getSession().removeAttribute("cart");
+						resp.sendRedirect("./trang-chu");
+					}else {
+						req.setAttribute("scriptCode", "alert('Không thể tiến hành thanh toán, vui lòng nhập mã xác thực người dùng');");
+						req.getRequestDispatcher("/views/web/checkOut.jsp").forward(req, resp);
+					}
+
+
+				} else {
+				req.setAttribute("scriptCode", "alert('Không thể tiến hành thanh toán, vui lòng nhập mã xác thực người dùng');");
+				req.getRequestDispatcher("/views/web/checkOut.jsp").forward(req, resp);
+				}
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 }

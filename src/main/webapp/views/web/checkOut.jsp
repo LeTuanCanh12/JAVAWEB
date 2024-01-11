@@ -36,6 +36,24 @@
           type="text/css">
     <link rel="stylesheet"
           href="<c:url value='/template/web/css/style.css' />" type="text/css">
+    <style type="text/css">
+        .verify-user{
+            display: block;
+        }
+        .verify-lbl{
+            font-size: 30px;
+            color: white;
+        }
+        .verify-user input{
+            display: block;
+            border-radius: 5px;
+            width:100%;
+            border: none;
+            height: 10vh;
+            margin-top: 15px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -149,6 +167,18 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
+                            <div class="verify-user">
+                                <label id="verify-lbl" for="verify-code">
+                                    Nhập mã xác nhận người dùng chính chủ:
+                                    <input type="password" name="verify-code" id="verify-code" placeholder="Nhập mã xác nhận người dùng...">
+                                </label>
+                            </div>
+                            <div class="verify-user">
+                                <label  for="verify-code">
+                                    Nhập văn bản chữ ký:
+                                    <input type="text" name="textSig" id="textSig" placeholder="Nhập văn bản chữ ký đã đăng ký...">
+                                </label>
+                            </div>
                         </div>
                         <button href="#" type="submit" class="site-btn">Thanh toán</button>
                     </div>
@@ -176,6 +206,9 @@
 <script src="<c:url value='/template/web/js/mixitup.min.js' />"></script>
 <script src="<c:url value='/template/web/js/owl.carousel.min.js' />"></script>
 <script src="<c:url value='/template/web/js/main.js' /> "></script>
+<script type="text/javascript">
+    ${scriptCode}
+</script>
 
 
 

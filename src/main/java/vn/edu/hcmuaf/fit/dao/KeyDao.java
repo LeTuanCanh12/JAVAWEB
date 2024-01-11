@@ -71,8 +71,8 @@ public class KeyDao {
                 Key keys = new Key();
                 keys.setId(rs.getInt(1));
                 keys.setUser_id(rs.getInt(2));
-                keys.setPrivatekey(rs.getString(3));
-                keys.setPublickey(rs.getString(4));
+                keys.setPublickey(rs.getString(3));
+                keys.setPrivatekey(rs.getString(4));
                 keys.setSignature(rs.getString(5));
                 keys.setStatus(rs.getInt(6));
 

@@ -1,9 +1,9 @@
 package vn.edu.hcmuaf.fit.web;
 
 import vn.edu.hcmuaf.fit.dao.ListProductDao;
-import vn.edu.hcmuaf.fit.model.Cart;
-import vn.edu.hcmuaf.fit.model.CartProduct;
-import vn.edu.hcmuaf.fit.model.Product;
+import vn.edu.hcmuaf.fit.dao.SignatureDao;
+import vn.edu.hcmuaf.fit.dao.TransactionDao;
+import vn.edu.hcmuaf.fit.model.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,76 +12,50 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = { "/yeu-thich" })
+@WebServlet(urlPatterns = {"/yeu-thich"})
 public class AddToFavour extends HttpServlet {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ListProductDao dao = new ListProductDao();
-		int quantity = 1;
-		int id;
-		if (req.getParameter("proId") != null) {
-			Product pro = dao.inforProduct(req.getParameter("proId"));
-			if (pro != null) {
-				if (req.getParameter("quantity") != null) {
-					quantity = Integer.parseInt(req.getParameter("quantity"));
-				}
-			}
-			HttpSession session = req.getSession();
-			if (session.getAttribute("favour") == null) {
-				Cart favour = new Cart();
-				List<CartProduct> list = new ArrayList<>();
-				CartProduct cartp = new CartProduct();
-				cartp.setPro(pro);
-				cartp.setQuantity(quantity);
-				list.add(cartp);
-				favour.setList(list);
-				session.setAttribute("favour", favour);
-				;
-			} else {
-				Cart favour = (Cart) session.getAttribute("favour");
-				List<CartProduct> list = favour.getList();
-				boolean exist = false;
-				for (CartProduct p : list) {
-					if (p.getPro().getPro_id() == pro.getPro_id()) {
-						p.setQuantity(p.getQuantity() + quantity);
-						exist = true;
-					}
-					
-				}
-				if (exist == false) {
-					CartProduct p = new CartProduct();
-					p.setPro(pro);
-					p.setQuantity(quantity);
-					list.add(p);
-					
-				}
-				session.setAttribute("favour", favour);
-			}
-			
-			req.getRequestDispatcher("/danh-sach-san-pham").forward(req, resp);
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        TransactionDao dao = new TransactionDao();
+        List<Transaction> listTrans = new ArrayList<>();
+        UserModel user = (UserModel) req.getSession().getAttribute("user");
+        listTrans = dao.getAllTransactionById(user.getMail());
+        SignatureDao daoHash = new SignatureDao();
+        String textHash = "";
+        try {
+            for (Transaction s : listTrans) {
+                textHash = s.getName() + s.getEmail() + s.getPhone() + s.getAddress() + s.getNote()
+                        + s.getTotal() + s.getItems();
+               			 String hashed = daoHash.sha256Hash(textHash);
 
-		} else {
-			
-			req.getRequestDispatcher("/danh-sach-san-pham").forward(req, resp);
-		}
-	}
 
-	public static void main(String[] args) {
+            }
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
 
-	}
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
-	}
+        req.setAttribute("listAllTrans", listTrans);
+        req.getRequestDispatcher("/views/web/favour.jsp");
+    }
+
+    public static void main(String[] args) {
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        super.doPost(req, resp);
+    }
 }

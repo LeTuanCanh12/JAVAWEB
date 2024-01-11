@@ -46,12 +46,11 @@
     </div>
     <form method="post" class="form" id="form">
       <div class="form-control">
-        <p>Chữ ký đã tạo thành công. Vui lòng giữ bí mật chuỗi mã hóa sau. Sử dụng chuỗi + chữ ký đã nhập
-        để sử dụng chữ ký này!
+        <p>Chữ ký điện tử đã tạo thành công. Vui lòng giữ bí mật chuỗi xác nhận người dùng và văn bản chữ ký đã nhập!
         </p>
       </div>
       <div class="form-control">
-        <label>Signature: </label> <button  onclick="copyToClipboard1() ">Coppy</button>
+        <label>Mã xác nhận người dùng: </label> <button  onclick="copyToClipboard1() ">Copy</button>
         <textarea id="Public" rows="6" cols="40" readonly><%=myValue.toString()%></textarea>
         <i class="fa-solid fa-circle-check"></i>
         <i class="fa-solid fa-circle-info"></i>
